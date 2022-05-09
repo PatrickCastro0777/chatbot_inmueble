@@ -30,8 +30,8 @@ def alquiler(update, context):
 
 def venta(update, context):
     if(update.message.text.upper().find("VENTA") > 0):
-      update.message.reply_text('Puede usar el comando "/Tipo" para ver la lista de tipos de inmuebles disponibles')
-
+        update.message.reply_text("Si hay Stock")
+        
 def  tipo(update, context):
     if(update.message.text.upper().find("TIPO") > 0):
         update.message.reply_text("/Apartamento")
