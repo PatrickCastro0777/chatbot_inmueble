@@ -22,66 +22,68 @@ def start(update, context):
     update.message.reply_text('Puede usar el comando "/alquiler" para ir a la sección de alquiler')
 
 
-
-
 def alquiler(update, context):
     if(update.message.text.upper().find("ALQUILER") > 0):
         update.message.reply_text("No hay Stock")
 
+
 def venta(update, context):
-    if(update.message.text.upper().find("VENTA") > 0):
-        update.message.reply_text("Si hay Stock")
-        
+    update.message.reply_text('Puede usar el comando "/tipo" para ver los tipos de inmuebles disponibles')      
+
 def  tipo(update, context):
-    if(update.message.text.upper().find("TIPO") > 0):
+        update.message.reply_text("Le ofrecemos los siguientes inmuebles: ")
         update.message.reply_text("/Apartamento")
         update.message.reply_text("/Local")
         update.message.reply_text("/Bodega")
         update.message.reply_text("/Casa")
 
 def apartamento(update, context):
-    if(update.message.text.upper().find("APARTAMENTO") > 0):
-        update.message.reply_text("/ubicacion")
-
-def local(update, context):
-    if(update.message.text.upper().find("LOCAL") > 0):
-        update.message.reply_text("/ubicacion")
-
-def bodega(update, context):
-    if(update.message.text.upper().find("BODEGA") > 0):
-        update.message.reply_text("/ubicacion")
-
-def casa(update, context):
-    if(update.message.text.upper().find("CASA") > 0):
-        update.message.reply_text("/ubicacion")
-
-def ubicacion(update, context):
-    if(update.message.text.upper().find("UBICACION") > 0):
+        update.message.reply_text("¿En qué lugar de Guatemala desea su apartamento?")
         update.message.reply_text("/Capital")
         update.message.reply_text("/Quetzaltenango")
         update.message.reply_text("/Totonicapan")
         update.message.reply_text("/Progreso")
-        update.message.reply_text("/Sacatepéquez")                      
+        update.message.reply_text("/Sacatepequez")  
+
+def local(update, context):
+        update.message.reply_text("¿En qué lugar de Guatemala desea su local?")
+        update.message.reply_text("/Capital")
+        update.message.reply_text("/Quetzaltenango")
+        update.message.reply_text("/Totonicapan")
+        update.message.reply_text("/Progreso")
+        update.message.reply_text("/Sacatepequez")  
+
+def bodega(update, context):
+        update.message.reply_text("¿En qué lugar de Guatemala desea su bodega?")
+        update.message.reply_text("/Capital")
+        update.message.reply_text("/Quetzaltenango")
+        update.message.reply_text("/Totonicapan")
+        update.message.reply_text("/Progreso")
+        update.message.reply_text("/Sacatepequez")  
+
+def casa(update, context):
+        update.message.reply_text("¿En qué lugar de Guatemala desea su caasa?")
+        update.message.reply_text("/Capital")
+        update.message.reply_text("/Quetzaltenango")
+        update.message.reply_text("/Totonicapan")
+        update.message.reply_text("/Progreso")
+        update.message.reply_text("/Sacatepequez")                        
 
 def capital(update, context):
-    if(update.message.text.upper().find("CAPITAL") > 0):
-        update.message.reply_text("")
+        update.message.reply_text("En la Capital hay 3 inmuenbles disponibles")
 
 def quetzaltenango(update, context):
-    if(update.message.text.upper().find("QUETZALTENANGO") > 0):
-        update.message.reply_text("")
+        update.message.reply_text("En Quetzaltenango hay 2 inmuebles disponibles")
 
 def totonicapan(update, context):
-    if(update.message.text.upper().find("TOTONICAPAN") > 0):
-        update.message.reply_text("")        
+        update.message.reply_text("En Totonicapan hay 2 inmuebles disponibles")        
 
 def progreso(update, context):
-    if(update.message.text.upper().find("PROGRESO") > 0):
-        update.message.reply_text("")
+        update.message.reply_text("En El Progreso hay 3 inmuebles disponibles")
 
 def sacatepequez(update, context):
-    if(update.message.text.upper().find("SACATEPEQUEZ") > 0):
-        update.message.reply_text("")
+        update.message.reply_text("En Sacatepéquez hay 2 inmuebles disponibles")
+
 
 def main():
     updater = Updater("5148207681:AAEnHDj3uZpYMT5dXeMWmcDfl-B_QkM92-M", use_context=True)
@@ -89,20 +91,19 @@ def main():
 
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
+    dp.add_handler(CommandHandler("venta", venta))
+    dp.add_handler(CommandHandler("tipo", tipo)) 
+    dp.add_handler(CommandHandler("apartamento", apartamento))
+    dp.add_handler(CommandHandler("local", local))
+    dp.add_handler(CommandHandler("bodega", bodega))
+    dp.add_handler(CommandHandler("casa", casa))
+    dp.add_handler(CommandHandler("capital", capital))
+    dp.add_handler(CommandHandler("quetzaltenango", quetzaltenango))
+    dp.add_handler(CommandHandler("totonicapan", totonicapan))
+    dp.add_handler(CommandHandler("progreso", progreso))
+    dp.add_handler(CommandHandler("sacatepequez", sacatepequez))
 
     dp.add_handler(MessageHandler(Filters.text, alquiler))
-    dp.add_handler(MessageHandler(Filters.text, venta))
-    dp.add_handler(MessageHandler(Filters.text, tipo))
-    dp.add_handler(MessageHandler(Filters.text, apartamento))
-    dp.add_handler(MessageHandler(Filters.text, local))
-    dp.add_handler(MessageHandler(Filters.text, bodega))
-    dp.add_handler(MessageHandler(Filters.text, casa))
-    dp.add_handler(MessageHandler(Filters.text, ubicacion))
-    dp.add_handler(MessageHandler(Filters.text, capital))
-    dp.add_handler(MessageHandler(Filters.text, quetzaltenango))
-    dp.add_handler(MessageHandler(Filters.text, totonicapan))
-    dp.add_handler(MessageHandler(Filters.text, progreso))
-    dp.add_handler(MessageHandler(Filters.text, sacatepequez))
 
     dp.add_error_handler(error)
     updater.start_polling()
