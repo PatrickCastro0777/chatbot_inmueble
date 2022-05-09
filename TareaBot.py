@@ -1,4 +1,5 @@
 
+#Nota: Para ver el chatbot en Telegram se puede encontrar con el nombre de "Mi_bot_Patrick_Castro"
 import logging
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
